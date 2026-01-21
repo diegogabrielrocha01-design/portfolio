@@ -5,143 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diego Gabriel Rocha | Abogado</title>
     <style>
+        /* ESTILOS GENERALES */
         body { font-family: 'Segoe UI', sans-serif; margin: 0; color: #333; line-height: 1.6; }
         header { background: #0f2c45; color: white; padding: 20px 0; text-align: center; }
         nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        .container { width: 80%; margin: auto; max-width: 1000px; padding: 20px; }
+        nav a:hover { text-decoration: underline; }
+        .container { width: 85%; margin: auto; max-width: 1000px; padding: 20px; }
         
-        /* Hero Section */
+        /* PORTADA (HERO) */
         .hero { background: #f4f4f4; padding: 60px 20px; text-align: center; border-bottom: 4px solid #0f2c45; }
-        .hero h1 { margin: 0; color: #0f2c45; font-size: 2.5em; }
+        .hero h1 { margin: 10px 0 0 0; color: #0f2c45; font-size: 2.5em; }
         .hero p { font-size: 1.2em; color: #555; }
+        /* Estilo para tu foto de perfil */
+        .profile-pic {
+            width: 150px; 
+            height: 150px; 
+            object-fit: cover; /* Evita que la foto se deforme */
+            border-radius: 50%; /* La hace redonda */
+            border: 4px solid #0f2c45; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
         
-        /* Secciones */
-        h2 { color: #0f2c45; border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-top: 40px; }
+        /* SECCIONES */
+        h2 { color: #0f2c45; border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-top: 50px; }
+        .job, .school { margin-bottom: 25px; padding-left: 15px; border-left: 3px solid #eee; }
+        .date { color: #666; font-style: italic; font-size: 0.9em; display: block; margin-bottom: 5px; }
         
-        /* Experiencia y Educación */
-        .job, .school { margin-bottom: 20px; }
-        .date { color: #666; font-style: italic; font-size: 0.9em; }
-        
-        /* Grid de Certificados */
-        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .cert-card { border: 1px solid #ddd; padding: 20px; border-radius: 8px; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        /* TARJETAS DE CERTIFICADOS */
+        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .cert-card { 
+            border: 1px solid #ddd; 
+            padding: 20px; 
+            border-radius: 8px; 
+            background: #fff; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+            text-align: center;
+            transition: transform 0.3s;
+        }
         .cert-card:hover { transform: translateY(-5px); }
-        .cert-title { font-weight: bold; color: #0f2c45; }
+        .cert-title { font-weight: bold; color: #0f2c45; margin-top: 10px; font-size: 1.1em; }
         .cert-inst { color: #777; font-size: 0.9em; margin-bottom: 15px; }
-        .btn-ver { display: inline-block; background: #0f2c45; color: white; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-size: 0.9em; }
         
-        /* Skills */
-        .skills-list span { background: #e0e0e0; padding: 5px 10px; border-radius: 4px; margin-right: 5px; display: inline-block; margin-bottom: 5px; }
+        /* Botón de ver credencial */
+        .btn-ver { 
+            display: inline-block; 
+            background: #0f2c45; 
+            color: white; 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 4px; 
+            font-size: 0.9em; 
+            cursor: pointer; /* Manito al pasar el mouse */
+            margin-top: 10px;
+        }
+        .btn-ver:hover { background: #1a4a70; }
 
-        footer { background: #0f2c45; color: white; text-align: center; padding: 20px; margin-top: 50px; }
-    </style>
-</head>
-<body>
+        /* SKILLS */
+        .skills-list span { background: #e0e0e0; padding: 5px 12px; border-radius: 20px; margin-right: 5px; display: inline-block; margin-bottom: 8px; font-size: 0.9em; }
 
-<header>
-    <div class="container">
-        <h1>DIEGO GABRIEL ROCHA</h1>
-        <nav>
-            <a href="#perfil">Perfil</a>
-            <a href="#experiencia">Experiencia</a>
-            <a href="#certificados">Certificados</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
-    </div>
-</header>
+        footer { background: #0f2c45; color: white; text-align: center; padding: 20px; margin-top: 60px; font-size: 0.9em; }
 
-<div class="hero">
-    <img src=https://postimg.cc/8szc7zb5][img]https://i.postimg.cc/8szc7zb5/perfil-jpeg.jpg[/img][/url]>
-    <h1>Abogado | Derecho Empresarial</h1>
-<div class="container">
-
-    <section id="perfil">
-        <h2>Perfil Profesional</h2>
-        <p>Abogado egresado de la UBA con especialización en Derecho Empresarial. Cuento con sólida experiencia en la gestión integral de expedientes, control de documentación técnica y administración de procesos legales. Poseo habilidades comerciales y de negociación orientadas al cumplimiento de objetivos. Experto en sistemas de gestión (Lex Doctor) y herramientas de análisis de datos (PowerBI).</p>
-    </section>
-
-    <section id="experiencia">
-        <h2>Experiencia Laboral</h2>
-        <div class="job">
-            <h3>Ethikos Mediaciones | Asistente Legal - Abogado Junior</h3>
-            <span class="date">Septiembre 2023 - Actualidad</span>
-            <ul>
-                <li>Responsable del seguimiento integral de 282 causas judiciales.</li>
-                <li>Manejo avanzado de Lex Doctor, PJN, MEV, MEPRE.</li>
-                <li>Supervisión de plazos procesales y redacción de escritos.</li>
-            </ul>
-        </div>
-        <div class="job">
-            <h3>Mi Opción Salud | Asesor Comercial</h3>
-            <span class="date">Marzo 2023 - Julio 2023</span>
-            <p>Seguimiento de contratos, facturación y resolución de conflictos con clientes.</p>
-        </div>
-    </section>
-
-    <section id="certificados">
-        <h2>Certificaciones y Cursos</h2>
-        <p>Formación continua en metodologías ágiles y análisis de datos aplicados.</p>
-        <div class="cert-grid">
-            <div class="cert-card">
-    <img src="img/diploma1.jpg" alt="Certificado Agile" style="width: 100%; height: auto; border-radius: 4px; margin-bottom: 10px;">
-    
-    <div class="cert-title">Gestión de Proyectos y Metodología Agile</div>
-                <div class="cert-inst">Santander Open Academy (2025)</div>
-                <p>Scrum, Kanban y gestión de flujos de trabajo.</p>
-                <a href="#" class="btn-ver">Ver Credencial</a>
-            </div>
-            <div class="cert-card">
-    <img src="img/diploma2.jpg" alt="Certificado Power BI" style="width: 100%; height: auto; border-radius: 4px; margin-bottom: 10px;">
-    
-    <div class="cert-title">Gestión de Proyectos y Metodología Agile</div>
-                <div class="cert-inst">Santander Open Academy (2025)</div>
-                <p>Power Query, limpieza de datos y tableros de control.</p>
-                <<a href="diploma1.jpg" target="_blank" class="btn-ver">Ver Credencial</a>
-            </div>
-             <div class="cert-card" style="border-style: dashed; text-align: center; color: #999;">
-                <div class="cert-title">Próximamente</div>
-                <p>Espacio reservado para nuevas certificaciones.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="educacion">
-        <h2>Educación</h2>
-        <div class="school">
-            <h3>Universidad de Buenos Aires (UBA)</h3>
-            <p><strong>Título:</strong> Abogado (Orientación en Derecho Empresarial)</p>
-            <span class="date">2021 - 2025 | Promedio: 7.15</span>
-            <p>Participación en Jornadas de Práctica Profesional y Patrocinio Jurídico Gratuito.</p>
-        </div>
-    </section>
-
-    <section id="skills">
-        <h2>Habilidades Técnicas</h2>
-        <div class="skills-list">
-            <span>Lex Doctor (Avanzado)</span>
-            <span>PJN / MEV / MEPRE</span>
-            <span>Power BI</span>
-            <span>Metodología Agile</span>
-            <span>Paquete Office</span>
-            <span>Inglés (Intermedio)</span>
-        </div>
-    </section>
-
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <p>¿Interesado en mi perfil? Contáctame:</p>
-        <ul>
-            <li><strong>Teléfono:</strong> 1140841721</li>
-            <li><strong>Email:</strong> diegogabrielrocha01@gmail.com</li>
-            <li><strong>LinkedIn:</strong> linkedin.com/in/diego-rocha-832079181</li>
-        </ul>
-    </section>
-
-</div>
-
-<footer>
-    <p>&copy; 2026 Diego Gabriel Rocha - Todos los derechos reservados.</p>
-</footer>
-
-</body>
-</html>
+        /* --- ESTILOS DE LA VENTANA MODAL (POP-UP) --- */
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed; 
+            z-index: 1000; 
+            left: 0;
+            top:
