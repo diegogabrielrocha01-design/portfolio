@@ -16,7 +16,7 @@
         
         .container { width: 90%; margin: auto; max-width: 1100px; padding: 40px; background: white; margin-top: 30px; margin-bottom: 30px; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
         
-        /* PORTADA (HERO) */
+        /* PORTADA */
         .hero { text-align: center; padding-bottom: 30px; border-bottom: 2px solid #eee; margin-bottom: 40px; }
         .hero img { 
             width: 180px; height: 180px; object-fit: cover; 
@@ -66,137 +66,49 @@
         /* FOOTER */
         footer { background: #0f2c45; color: white; text-align: center; padding: 20px; margin-top: 40px; font-size: 0.9em; }
 
-        /* --- VENTANA MODAL (ZOOM) --- */
+        /* --- VENTANA MODAL (CORREGIDA PARA MAXIMA NITIDEZ) --- */
         .modal { 
             display: none; position: fixed; z-index: 9999; left: 0; top: 0; 
-            width: 100%; height: 100%; overflow: auto; 
-            background-color: rgba(0,0,0,0.92); /* Fondo casi negro */
-            flex-direction: column; align-items: center; justify-content: center;
+            width: 100%; height: 100%; 
+            background-color: rgba(0,0,0,0.95); /* Fondo muy oscuro */
+            overflow: auto; /* Permite scroll si la imagen es gigante */
         }
         
-        .modal-content { 
-            margin: auto; display: block; 
-            max-width: 85%; max-height: 85vh; /* Tamaño inicial */
-            border: 2px solid white; 
-            cursor: zoom-in; /* Cursor de lupa */
-            transition: all 0.3s ease;
+        /* Contenedor flexible para centrar la imagen cuando no hay zoom */
+        .modal-container {
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100%; width: 100%; padding: 20px; box-sizing: border-box;
         }
 
-        /* Clase mágica para el Zoom */
+        .modal-content { 
+            display: block; 
+            max-width: 95vw; /* Ocupa casi todo el ancho de la pantalla */
+            max-height: 95vh; /* Ocupa casi todo el alto */
+            object-fit: contain; /* Asegura que se vea completa sin cortes */
+            border: 2px solid white; 
+            cursor: zoom-in; 
+            box-shadow: 0 0 30px rgba(255,255,255,0.1);
+        }
+
+        /* CLASE PARA EL ZOOM REAL */
         .modal-content.zoomed {
-            max-width: none; max-height: none; /* Quita límites */
-            width: auto; height: auto;
-            transform: scale(1.5); /* Aumenta tamaño */
+            max-width: none; /* Elimina límites de ancho */
+            max-height: none; /* Elimina límites de alto */
+            width: auto; height: auto; /* Usa el tamaño real de la imagen */
             cursor: zoom-out;
-            margin-top: 50px; margin-bottom: 50px;
         }
 
         .cerrar { 
-            position: absolute; top: 20px; right: 40px; 
+            position: fixed; top: 20px; right: 30px; 
             color: #fff; font-size: 50px; font-weight: bold; 
-            cursor: pointer; z-index: 10000;
-        }
-        .instruccion { color: #ccc; margin-top: 15px; font-size: 1em; }
-    </style>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diego Gabriel Rocha | Abogado</title>
-    <style>
-        /* --- ESTILOS GENERALES --- */
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; color: #333; line-height: 1.6; background-color: #f5f5f5; }
-        
-        /* HEADER */
-        header { background: #0f2c45; color: white; padding: 20px 0; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-        nav { margin-top: 10px; }
-        nav a { color: #e0e0e0; margin: 0 15px; text-decoration: none; font-weight: 600; font-size: 1.1em; transition: color 0.3s; }
-        nav a:hover { color: #fff; text-decoration: underline; }
-        
-        .container { width: 90%; margin: auto; max-width: 1100px; padding: 40px; background: white; margin-top: 30px; margin-bottom: 30px; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
-        
-        /* PORTADA (HERO) */
-        .hero { text-align: center; padding-bottom: 30px; border-bottom: 2px solid #eee; margin-bottom: 40px; }
-        .hero img { 
-            width: 180px; height: 180px; object-fit: cover; 
-            border-radius: 50%; border: 5px solid #0f2c45; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2); margin-bottom: 15px;
-        }
-        .hero h1 { margin: 0; color: #0f2c45; font-size: 2.8em; text-transform: uppercase; letter-spacing: 1px; }
-        .hero h2 { margin: 5px 0 15px 0; color: #555; font-weight: 400; font-size: 1.4em; }
-        .contact-info { font-size: 1.1em; background: #f0f4f8; display: inline-block; padding: 10px 20px; border-radius: 50px; }
-        .contact-info a { color: #0f2c45; text-decoration: none; font-weight: bold; margin: 0 10px; }
-
-        /* SECCIONES */
-        h3.section-title { 
-            color: #0f2c45; border-left: 5px solid #0f2c45; 
-            padding-left: 15px; margin-bottom: 25px; font-size: 1.8em; 
-            text-transform: uppercase; letter-spacing: 0.5px; background: #f9f9f9; padding-top: 5px; padding-bottom: 5px;
+            cursor: pointer; z-index: 10000; text-shadow: 0 0 10px #000;
         }
         
-        /* BLOQUES DE INFO */
-        .item-block { margin-bottom: 35px; }
-        .item-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
-        .item-title { font-size: 1.4em; font-weight: bold; color: #222; }
-        .item-date { font-style: italic; color: #0f2c45; font-weight: 600; background: #eef; padding: 2px 8px; border-radius: 4px; }
-        .item-subtitle { font-size: 1.1em; color: #555; font-weight: 600; margin-bottom: 10px; display: block; }
-        .item-desc ul { margin-top: 5px; padding-left: 20px; color: #444; }
-        .item-desc li { margin-bottom: 6px; }
-
-        /* DIPLOMAS */
-        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .cert-card { 
-            border: 1px solid #ddd; padding: 20px; border-radius: 8px; 
-            background: #fff; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.05); 
-            transition: transform 0.2s; display: flex; flex-direction: column; justify-content: space-between;
+        .instruccion { 
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+            color: #fff; background: rgba(0,0,0,0.5); padding: 5px 15px; border-radius: 20px;
+            pointer-events: none;
         }
-        .cert-card:hover { transform: translateY(-3px); border-color: #0f2c45; }
-        .btn-ver { 
-            background: #0f2c45; color: white; padding: 12px; 
-            border: none; border-radius: 5px; cursor: pointer; margin-top: 15px; 
-            font-size: 1em; font-weight: bold; width: 100%; transition: background 0.3s;
-        }
-        .btn-ver:hover { background: #1a4a70; }
-
-        /* SKILLS */
-        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
-        .skill-tag { background: #0f2c45; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.95em; }
-
-        /* FOOTER */
-        footer { background: #0f2c45; color: white; text-align: center; padding: 20px; margin-top: 40px; font-size: 0.9em; }
-
-        /* --- VENTANA MODAL (ZOOM) --- */
-        .modal { 
-            display: none; position: fixed; z-index: 9999; left: 0; top: 0; 
-            width: 100%; height: 100%; overflow: auto; 
-            background-color: rgba(0,0,0,0.92); /* Fondo casi negro */
-            flex-direction: column; align-items: center; justify-content: center;
-        }
-        
-        .modal-content { 
-            margin: auto; display: block; 
-            max-width: 85%; max-height: 85vh; /* Tamaño inicial */
-            border: 2px solid white; 
-            cursor: zoom-in; /* Cursor de lupa */
-            transition: all 0.3s ease;
-        }
-
-        /* Clase mágica para el Zoom */
-        .modal-content.zoomed {
-            max-width: none; max-height: none; /* Quita límites */
-            width: auto; height: auto;
-            transform: scale(1.5); /* Aumenta tamaño */
-            cursor: zoom-out;
-            margin-top: 50px; margin-bottom: 50px;
-        }
-
-        .cerrar { 
-            position: absolute; top: 20px; right: 40px; 
-            color: #fff; font-size: 50px; font-weight: bold; 
-            cursor: pointer; z-index: 10000;
-        }
-        .instruccion { color: #ccc; margin-top: 15px; font-size: 1em; }
     </style>
 </head>
 <body>
@@ -287,7 +199,7 @@
             </div>
             <span class="item-subtitle">Título: Abogado (Orientación en Derecho Empresarial)</span>
             <div class="item-desc">
-                <p><strong>Promedio General: 7.15</strong></p>
+                <p><strong>Promedio General: 7.20</strong></p>
             </div>
         </div>
 
@@ -310,14 +222,14 @@
                 <span class="item-title">Jornada de Práctica Profesional</span>
             </div>
             <div class="item-desc">
-                <p>Participación en la jornada "Garantías de acceso a la justicia y práctica profesional del derecho" sobre implementación de nuevas tecnologías en el ámbito jurídico.</p>
+                <p>Participación en la jornada "Garantías de acceso a la justicia y práctica profesional del derecho".</p>
             </div>
         </div>
     </section>
 
     <section id="cursos">
         <h3 class="section-title">Cursos y Certificaciones</h3>
-        <p style="text-align:center; color:#666; margin-bottom:20px;">ℹ️ Haz clic en "Ver Diploma" y luego <strong>toca la imagen para hacer ZOOM</strong>.</p>
+        <p style="text-align:center; color:#666; margin-bottom:20px;">ℹ️ Haz clic en "Ver Diploma" y luego <strong>toca la imagen para ver el tamaño real</strong>.</p>
         
         <div class="cert-grid">
             <div class="cert-card">
@@ -361,16 +273,18 @@
 
 <div id="miModal" class="modal" onclick="cerrarSiEsFondo(event)">
     <span class="cerrar" onclick="cerrarModal()">&times;</span>
-    <img class="modal-content" id="imgModal" onclick="toggleZoom(event)">
-    <p class="instruccion">🔍 Haz clic en la imagen para AUMENTAR/REDUCIR tamaño</p>
+    <div class="modal-container" onclick="cerrarSiEsFondo(event)">
+        <img class="modal-content" id="imgModal" onclick="toggleZoom(event)">
+    </div>
+    <p class="instruccion">🔍 Clic en la imagen para ZOOM</p>
 </div>
 
 <script>
-    // Abre el modal con la imagen seleccionada
+    // Abre el modal
     function abrirModal(url) {
         var modal = document.getElementById("miModal");
         var img = document.getElementById("imgModal");
-        modal.style.display = "flex";
+        modal.style.display = "block"; // Cambiado a block para permitir scroll
         img.src = url;
         img.classList.remove("zoomed"); // Resetea el zoom
     }
@@ -380,16 +294,17 @@
         document.getElementById("miModal").style.display = "none";
     }
 
-    // Cierra si clic en lo negro
+    // Cierra si clic en el fondo negro (pero no en la imagen)
     function cerrarSiEsFondo(event) {
-        if (event.target === document.getElementById("miModal")) {
+        // Verifica si el clic fue directamente en el contenedor o el fondo
+        if (event.target.id === "miModal" || event.target.className === "modal-container") {
             cerrarModal();
         }
     }
 
-    // Activa/Desactiva Zoom
+    // Activa/Desactiva Zoom Real
     function toggleZoom(event) {
-        event.stopPropagation(); // Evita que se cierre al hacer clic
+        event.stopPropagation(); // Evita cierre
         var img = document.getElementById("imgModal");
         img.classList.toggle("zoomed");
     }
