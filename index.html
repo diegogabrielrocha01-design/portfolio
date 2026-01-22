@@ -6,108 +6,134 @@
     <title>Diego Gabriel Rocha | Abogado</title>
     <style>
         /* --- ESTILOS GENERALES --- */
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; color: #333; line-height: 1.6; background-color: #f5f5f5; }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; color: #333; line-height: 1.6; background-color: #f2f4f8; }
         
         /* HEADER */
-        header { background: #0f2c45; color: white; padding: 20px 0; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        header { background: #0f2c45; color: white; padding: 20px 0; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
         nav { margin-top: 10px; }
-        nav a { color: #e0e0e0; margin: 0 15px; text-decoration: none; font-weight: 600; font-size: 1.1em; transition: color 0.3s; }
-        nav a:hover { color: #fff; text-decoration: underline; }
+        nav a { color: #e0e0e0; margin: 0 15px; text-decoration: none; font-weight: 600; font-size: 1.1em; text-transform: uppercase; }
+        nav a:hover { color: #fff; border-bottom: 2px solid #fff; }
         
-        .container { width: 90%; margin: auto; max-width: 1100px; padding: 40px; background: white; margin-top: 30px; margin-bottom: 30px; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+        .container { width: 95%; max-width: 1200px; margin: 30px auto; background: white; padding: 50px; border-radius: 8px; box-shadow: 0 5px 25px rgba(0,0,0,0.05); }
         
         /* PORTADA */
-        .hero { text-align: center; padding-bottom: 30px; border-bottom: 2px solid #eee; margin-bottom: 40px; }
+        .hero { display: flex; flex-direction: column; align-items: center; border-bottom: 3px solid #0f2c45; padding-bottom: 40px; margin-bottom: 40px; }
         .hero img { 
-            width: 180px; height: 180px; object-fit: cover; 
-            border-radius: 50%; border: 5px solid #0f2c45; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2); margin-bottom: 15px;
+            width: 200px; height: 200px; object-fit: cover; 
+            border-radius: 50%; border: 6px solid #0f2c45; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); margin-bottom: 20px;
         }
-        .hero h1 { margin: 0; color: #0f2c45; font-size: 2.8em; text-transform: uppercase; letter-spacing: 1px; }
-        .hero h2 { margin: 5px 0 15px 0; color: #555; font-weight: 400; font-size: 1.4em; }
-        .contact-info { font-size: 1.1em; background: #f0f4f8; display: inline-block; padding: 10px 20px; border-radius: 50px; }
-        .contact-info a { color: #0f2c45; text-decoration: none; font-weight: bold; margin: 0 10px; }
+        .hero h1 { margin: 0; color: #0f2c45; font-size: 3em; text-transform: uppercase; letter-spacing: 2px; text-align: center; }
+        .hero h2 { margin: 10px 0; color: #555; font-size: 1.5em; font-weight: 500; }
+        
+        .contact-box { 
+            margin-top: 20px; background: #eef4f8; padding: 15px 30px; border-radius: 50px; 
+            font-size: 1.1em; color: #0f2c45; font-weight: 600; text-align: center;
+        }
+        .contact-box a { color: #0f2c45; text-decoration: none; margin: 0 10px; }
 
         /* SECCIONES */
         h3.section-title { 
-            color: #0f2c45; border-left: 5px solid #0f2c45; 
-            padding-left: 15px; margin-bottom: 25px; font-size: 1.8em; 
-            text-transform: uppercase; letter-spacing: 0.5px; background: #f9f9f9; padding-top: 5px; padding-bottom: 5px;
+            background: #0f2c45; color: white; padding: 10px 20px; 
+            font-size: 1.5em; text-transform: uppercase; letter-spacing: 1px; 
+            border-radius: 4px; margin-bottom: 30px; margin-top: 50px;
         }
         
-        /* BLOQUES DE INFO */
-        .item-block { margin-bottom: 35px; }
-        .item-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
-        .item-title { font-size: 1.4em; font-weight: bold; color: #222; }
-        .item-date { font-style: italic; color: #0f2c45; font-weight: 600; background: #eef; padding: 2px 8px; border-radius: 4px; }
-        .item-subtitle { font-size: 1.1em; color: #555; font-weight: 600; margin-bottom: 10px; display: block; }
-        .item-desc ul { margin-top: 5px; padding-left: 20px; color: #444; }
-        .item-desc li { margin-bottom: 6px; }
+        /* EXPERIENCIA */
+        .job-item { margin-bottom: 40px; border-left: 5px solid #ddd; padding-left: 25px; transition: border-color 0.3s; }
+        .job-item:hover { border-left-color: #0f2c45; }
+        .job-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+        .job-title { font-size: 1.6em; font-weight: 700; color: #222; }
+        .job-role { font-size: 1.3em; color: #0f2c45; font-weight: 600; display: block; margin-bottom: 5px; }
+        .job-date { background: #0f2c45; color: white; padding: 4px 12px; border-radius: 15px; font-size: 0.9em; font-style: italic; }
+        .job-desc ul { margin: 10px 0 0 0; padding-left: 20px; }
+        .job-desc li { margin-bottom: 8px; font-size: 1.05em; color: #444; }
 
-        /* DIPLOMAS */
-        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .cert-card { 
-            border: 1px solid #ddd; padding: 20px; border-radius: 8px; 
-            background: #fff; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.05); 
-            transition: transform 0.2s; display: flex; flex-direction: column; justify-content: space-between;
+        /* EDUCACIÓN */
+        .edu-item { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+        .edu-promedio { display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 5px 10px; border-radius: 4px; font-weight: bold; margin-top: 5px; }
+
+        /* DIPLOMAS (ÁREA CRÍTICA) */
+        .cert-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Tarjetas más grandes */
+            gap: 40px; 
         }
-        .cert-card:hover { transform: translateY(-3px); border-color: #0f2c45; }
+        .cert-card { 
+            border: 1px solid #ccc; background: #fff; border-radius: 8px; overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s;
+            display: flex; flex-direction: column;
+        }
+        .cert-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+        
+        .cert-info { padding: 20px; flex-grow: 1; border-bottom: 1px solid #eee; }
+        .cert-title { font-size: 1.2em; font-weight: bold; color: #0f2c45; margin-bottom: 5px; }
+        .cert-inst { color: #666; font-style: italic; margin-bottom: 15px; display: block; }
+        
+        /* Botón de ver diploma */
         .btn-ver { 
-            background: #0f2c45; color: white; padding: 12px; 
-            border: none; border-radius: 5px; cursor: pointer; margin-top: 15px; 
-            font-size: 1em; font-weight: bold; width: 100%; transition: background 0.3s;
+            background: #0f2c45; color: white; border: none; padding: 15px; 
+            font-size: 1.1em; font-weight: bold; cursor: pointer; width: 100%;
+            transition: background 0.2s; text-transform: uppercase;
         }
         .btn-ver:hover { background: #1a4a70; }
 
         /* SKILLS */
-        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
-        .skill-tag { background: #0f2c45; color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.95em; }
+        .skills-list { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill { background: #0f2c45; color: white; padding: 8px 16px; border-radius: 30px; font-size: 1em; }
 
-        /* FOOTER */
-        footer { background: #0f2c45; color: white; text-align: center; padding: 20px; margin-top: 40px; font-size: 0.9em; }
-
-        /* --- VENTANA MODAL (CORREGIDA PARA MAXIMA NITIDEZ) --- */
-        .modal { 
-            display: none; position: fixed; z-index: 9999; left: 0; top: 0; 
-            width: 100%; height: 100%; 
-            background-color: rgba(0,0,0,0.95); /* Fondo muy oscuro */
-            overflow: auto; /* Permite scroll si la imagen es gigante */
-        }
-        
-        /* Contenedor flexible para centrar la imagen cuando no hay zoom */
-        .modal-container {
-            display: flex; justify-content: center; align-items: center;
-            min-height: 100%; width: 100%; padding: 20px; box-sizing: border-box;
+        /* --- MODAL (ZOOM REAL) --- */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 9999; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.9); 
+            overflow: auto; /* Permite scroll cuando la imagen es gigante */
         }
 
-        .modal-content { 
-            display: block; 
-            max-width: 95vw; /* Ocupa casi todo el ancho de la pantalla */
-            max-height: 95vh; /* Ocupa casi todo el alto */
-            object-fit: contain; /* Asegura que se vea completa sin cortes */
-            border: 2px solid white; 
-            cursor: zoom-in; 
-            box-shadow: 0 0 30px rgba(255,255,255,0.1);
+        /* Contenedor interno para centrar cuando no hay zoom */
+        .modal-flex-container {
+            display: flex;
+            min-height: 100%;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
-        /* CLASE PARA EL ZOOM REAL */
-        .modal-content.zoomed {
-            max-width: none; /* Elimina límites de ancho */
-            max-height: none; /* Elimina límites de alto */
-            width: auto; height: auto; /* Usa el tamaño real de la imagen */
-            cursor: zoom-out;
+        .modal-content {
+            display: block;
+            /* Por defecto: Se ajusta a la pantalla para verse completa */
+            max-width: 95vw;
+            max-height: 95vh;
+            border: 5px solid white;
+            cursor: zoom-in; /* Lupa + */
+            transition: none; /* Quitamos transición para evitar borrosidad al cambiar tamaño */
         }
 
-        .cerrar { 
+        /* ESTADO ZOOM: Muestra la resolución real (Nativa) */
+        .modal-content.full-size {
+            max-width: none;
+            max-height: none;
+            width: auto;
+            height: auto;
+            cursor: zoom-out; /* Lupa - */
+        }
+
+        .cerrar {
             position: fixed; top: 20px; right: 30px; 
             color: #fff; font-size: 50px; font-weight: bold; 
             cursor: pointer; z-index: 10000; text-shadow: 0 0 10px #000;
         }
-        
-        .instruccion { 
+
+        .zoom-msg {
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-            color: #fff; background: rgba(0,0,0,0.5); padding: 5px 15px; border-radius: 20px;
-            pointer-events: none;
+            background: rgba(255,255,255,0.2); color: white; padding: 5px 20px; border-radius: 20px;
+            pointer-events: none; font-size: 0.9em; text-align: center;
         }
     </style>
 </head>
@@ -119,194 +145,187 @@
         <a href="#perfil">Perfil</a>
         <a href="#experiencia">Experiencia</a>
         <a href="#educacion">Educación</a>
-        <a href="#cursos">Diplomas</a>
+        <a href="#certificados">Diplomas</a>
     </nav>
 </header>
 
 <div class="container">
 
     <div class="hero">
-        <img src="https://i.postimg.cc/8szc7zb5/perfil-jpeg.jpg" alt="Diego Rocha">
-        <h1>Abogado</h1>
-        <h2>Especialista en Derecho Empresarial</h2>
-        <div class="contact-info">
-            📞 1140841721 | ✉️ diegogabrielrocha01@gmail.com <br>
-            🔗 <a href="https://linkedin.com/in/diego-rocha-832079181" target="_blank">Ver LinkedIn</a>
+        <img src="https://i.postimg.cc/8szc7zb5/perfil-jpeg.jpg" alt="Diego Gabriel Rocha">
+        <h1>Diego Gabriel Rocha</h1>
+        <h2>Abogado | Derecho Empresarial</h2>
+        <div class="contact-box">
+            📞 1140841721 | 📧 diegogabrielrocha01@gmail.com <br>
+            <a href="https://linkedin.com/in/diego-rocha-832079181" target="_blank">🔗 Ver Perfil de LinkedIn</a>
         </div>
     </div>
 
     <section id="perfil">
         <h3 class="section-title">Perfil Profesional</h3>
-        <p>Abogado egresado de la UBA con especialización en Derecho Empresarial. Cuento con sólida experiencia en la gestión integral de expedientes, control de documentación técnica y administración de procesos legales. Poseo habilidades comerciales y de negociación orientadas al cumplimiento de objetivos y la eficiencia operativa. Experto en el manejo de sistemas de gestión y herramientas de oficina para garantizar la trazabilidad y confidencialidad de la información.</p>
+        <p style="font-size: 1.1em;">
+            Abogado egresado de la UBA con especialización en Derecho Empresarial. Cuento con sólida experiencia en la gestión integral de expedientes, control de documentación técnica y administración de procesos legales. Poseo habilidades comerciales y de negociación orientadas al cumplimiento de objetivos y la eficiencia operativa. [cite_start]Experto en el manejo de sistemas de gestión y herramientas de oficina para garantizar la trazabilidad y confidencialidad de la información[cite: 3, 4, 5, 6].
+        </p>
     </section>
 
     <section id="experiencia">
         <h3 class="section-title">Experiencia Laboral</h3>
-        
-        <div class="item-block">
-            <div class="item-header">
-                <span class="item-title">Ethikos Mediaciones</span>
-                <span class="item-date">Septiembre 2023 - Actualidad</span>
+
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-title">Ethikos Mediaciones</span>
+                <span class="job-date">Sept 2023 - Actualidad</span>
             </div>
-            <span class="item-subtitle">Asistente Legal | Abogado Junior</span>
-            <div class="item-desc">
+            <span class="job-role">Asistente Legal | Abogado Junior</span>
+            <div class="job-desc">
                 <ul>
-                    <li>Responsable del seguimiento integral de <strong>282 causas judiciales</strong>, asegurando la correcta tramitación de escritos, cédulas y acuerdos.</li>
-                    <li>Supervisión de plazos procesales y cumplimiento de protocolos internos para la presentación de recursos y oficios.</li>
-                    <li>Asistencia y concurrencia a audiencias.</li>
-                    <li>Interposición de recursos y control de plazos procesales.</li>
-                    <li>Manejo avanzado de sistemas de gestión judicial: <strong>Lex Doctor, PJN, MEV, MEPRE</strong> para el registro y auditoría.</li>
+                    [cite_start]<li>Responsable del seguimiento integral de <strong>282 causas judiciales</strong>, asegurando la correcta tramitación de escritos, cédulas y acuerdos[cite: 13].</li>
+                    [cite_start]<li>Supervisión de plazos procesales y cumplimiento de protocolos internos para la presentación de recursos y oficios[cite: 14].</li>
+                    [cite_start]<li>Asistencia y concurrencia a audiencias[cite: 15].</li>
+                    [cite_start]<li>Interposición de recursos y control de plazos procesales[cite: 16].</li>
+                    [cite_start]<li>Manejo avanzado de sistemas de gestión judicial: <strong>Lex Doctor, PJN, MEV, MEPRE</strong> para el registro y auditoría de movimientos procesales[cite: 17].</li>
                 </ul>
             </div>
         </div>
 
-        <div class="item-block">
-            <div class="item-header">
-                <span class="item-title">Mi Opción Salud</span>
-                <span class="item-date">Marzo 2023 - Julio 2023</span>
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-title">Mi Opción Salud</span>
+                <span class="job-date">Mar 2023 - Jul 2023</span>
             </div>
-            <span class="item-subtitle">Asesor Comercial</span>
-            <div class="item-desc">
+            <span class="job-role">Asesor Comercial</span>
+            <div class="job-desc">
                 <ul>
-                    <li>Seguimiento de contratos comerciales y procesos de facturación, garantizando la exactitud en la documentación.</li>
-                    <li>Resolución de conflictos y atención personalizada a clientes, fortaleciendo la fidelización mediante una comunicación efectiva.</li>
+                    [cite_start]<li>Seguimiento de contratos comerciales y procesos de facturación, garantizando la exactitud en la documentación de soporte[cite: 20].</li>
+                    [cite_start]<li>Resolución de conflictos y atención personalizada a clientes, fortaleciendo la fidelización mediante una comunicación efectiva[cite: 21].</li>
                 </ul>
             </div>
         </div>
 
-        <div class="item-block">
-            <div class="item-header">
-                <span class="item-title">Terapia en Movimiento</span>
-                <span class="item-date">Dic 2018 - Mar 2022</span>
+        <div class="job-item">
+            <div class="job-header">
+                <span class="job-title">Terapia en Movimiento</span>
+                <span class="job-date">Dic 2018 - Mar 2022</span>
             </div>
-            <span class="item-subtitle">Administrativo</span>
-            <div class="item-desc">
+            <span class="job-role">Administrativo</span>
+            <div class="job-desc">
                 <ul>
-                    <li>Coordinación de agendas profesionales y resguardo de documentación sensible bajo normas de confidencialidad.</li>
-                    <li>Gestión de facturación de prestaciones médicas y control de documentación para procesos internos.</li>
+                    [cite_start]<li>Coordinación de agendas profesionales y resguardo de documentación sensible bajo normas de confidencialidad[cite: 23].</li>
+                    [cite_start]<li>Gestión de facturación de prestaciones médicas y control de documentación para procesos internos[cite: 24].</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <section id="educacion">
-        <h3 class="section-title">Educación Académica</h3>
+        <h3 class="section-title">Educación y Formación</h3>
         
-        <div class="item-block">
-            <div class="item-header">
-                <span class="item-title">Universidad de Buenos Aires (UBA)</span>
-                <span class="item-date">2021 - 2025</span>
+        <div class="edu-item">
+            <div class="job-header">
+                <span class="job-title">Universidad de Buenos Aires (UBA)</span>
+                <span class="job-date">2021 - 2025</span>
             </div>
-            <span class="item-subtitle">Título: Abogado (Orientación en Derecho Empresarial)</span>
-            <div class="item-desc">
-                <p><strong>Promedio General: 7.20</strong></p>
-            </div>
+            <span class="job-role">Título: Abogado (Orientación en Derecho Empresarial)</span>
+            [cite_start]<span class="edu-promedio">Promedio General: 7.20</span> [cite: 29]
         </div>
 
-        <div class="item-block">
-            <div class="item-header">
-                <span class="item-title">Patrocinio Jurídico Gratuito (UBA)</span>
-                <span class="item-date">2025</span>
+        <div class="edu-item">
+            <div class="job-header">
+                <span class="job-title">Patrocinio Jurídico Gratuito (UBA)</span>
+                <span class="job-date">2025</span>
             </div>
-            <div class="item-desc">
+            <div class="job-desc">
                 <ul>
-                    <li>Tareas de procuración y gestión de expedientes en los fueros <strong>Civil, Laboral y de Familia</strong>.</li>
-                    <li>Redacción de demandas y escritos de diversa complejidad.</li>
-                    <li>Atención personalizada a consultantes para la recolección de documentación.</li>
+                    [cite_start]<li>Desarrollé tareas de procuración y gestión de expedientes en los fueros civil, laboral y de familia[cite: 33].</li>
+                    [cite_start]<li>Redacción de demandas y escritos de diversa complejidad[cite: 34].</li>
+                    [cite_start]<li>Atención personalizada a consultantes para la recolección de documentación y seguimiento de causas[cite: 35].</li>
                 </ul>
             </div>
         </div>
 
-        <div class="item-block">
-            <div class="item-header">
-                <span class="item-title">Jornada de Práctica Profesional</span>
+        <div class="edu-item">
+            <div class="job-header">
+                <span class="job-title">Jornada de Práctica Profesional</span>
             </div>
-            <div class="item-desc">
-                <p>Participación en la jornada "Garantías de acceso a la justicia y práctica profesional del derecho".</p>
-            </div>
+            [cite_start]<p>Participación en la jornada de "Garantías de acceso a la justicia y práctica profesional del derecho" donde se abordaron temas relacionados a la implementación de nuevas tecnologías en el ámbito jurídico[cite: 31].</p>
         </div>
     </section>
 
-    <section id="cursos">
-        <h3 class="section-title">Cursos y Certificaciones</h3>
-        <p style="text-align:center; color:#666; margin-bottom:20px;">ℹ️ Haz clic en "Ver Diploma" y luego <strong>toca la imagen para ver el tamaño real</strong>.</p>
+    <section id="certificados">
+        <h3 class="section-title">Certificaciones (Clic para Ampliar)</h3>
         
         <div class="cert-grid">
             <div class="cert-card">
-                <div>
-                    <div class="item-title">Gestión de Proyectos y Agile</div>
-                    <span class="item-date">Santander Open Academy (2025)</span>
-                    <p style="margin-top:10px; font-size:0.9em;">Scrum, Kanban y gestión de flujos de trabajo.</p>
+                <div class="cert-info">
+                    <div class="cert-title">Gestión de Proyectos y Metodología Agile</div>
+                    <span class="cert-inst">Santander Open Academy (2025)</span>
+                    [cite_start]<p>Formación centrada en la implementación de marcos de trabajo ágiles, coordinación de equipos, tableros Kanban y principios de Scrum[cite: 36, 37].</p>
                 </div>
-                <button class="btn-ver" onclick="abrirModal('https://i.postimg.cc/z3GvyGkX/diploma1-jpg.jpg')">Ver Diploma</button>
+                <button class="btn-ver" onclick="abrirModal('https://i.postimg.cc/z3GvyGkX/diploma1-jpg.jpg')">Ver Diploma Completo</button>
             </div>
 
             <div class="cert-card">
-                <div>
-                    <div class="item-title">Fundamentos de PowerBI</div>
-                    <span class="item-date">Santander Open Academy (2025)</span>
-                    <p style="margin-top:10px; font-size:0.9em;">Power Query, limpieza de datos y tableros de control.</p>
+                <div class="cert-info">
+                    <div class="cert-title">Fundamentos de PowerBI</div>
+                    <span class="cert-inst">Santander Open Academy (2025)</span>
+                    [cite_start]<p>Especialista en Power Query, limpieza de datos, funciones de resumen y creación de cuadros de mando interactivos[cite: 38, 39, 40].</p>
                 </div>
-                <button class="btn-ver" onclick="abrirModal('https://i.postimg.cc/nMhrXh1M/diploma2-jpg.jpg')">Ver Diploma</button>
+                <button class="btn-ver" onclick="abrirModal('https://i.postimg.cc/nMhrXh1M/diploma2-jpg.jpg')">Ver Diploma Completo</button>
             </div>
         </div>
     </section>
 
     <section>
-        <h3 class="section-title">Habilidades Técnicas</h3>
-        <div class="skills-container">
-            <span class="skill-tag">Lex Doctor (Avanzado)</span>
-            <span class="skill-tag">PJN / MEV / MEPRE / EJE JUS</span>
-            <span class="skill-tag">Power BI</span>
-            <span class="skill-tag">Metodología Agile</span>
-            <span class="skill-tag">Paquete Office</span>
-            <span class="skill-tag">Inglés (Intermedio)</span>
-            <span class="skill-tag">Redacción Jurídica</span>
+        <h3 class="section-title">Habilidades</h3>
+        <div class="skills-list">
+            <span class="skill">Lex Doctor (Avanzado)</span>
+            <span class="skill">PJN / MEV / MEPRE / EJE JUS</span>
+            <span class="skill">Power BI</span>
+            <span class="skill">Metodología Agile</span>
+            <span class="skill">Redacción Jurídica</span>
+            <span class="skill">Paquete Office</span>
+            <span class="skill">Inglés (Intermedio)</span>
+            <span class="skill">Google Tools</span>
         </div>
     </section>
 
 </div>
 
-<footer>
-    <p>&copy; 2026 Diego Gabriel Rocha - Abogado</p>
-</footer>
-
 <div id="miModal" class="modal" onclick="cerrarSiEsFondo(event)">
     <span class="cerrar" onclick="cerrarModal()">&times;</span>
-    <div class="modal-container" onclick="cerrarSiEsFondo(event)">
+    <div class="zoom-msg">🔍 Haz clic en la imagen para ver tamaño real / ajustar a pantalla</div>
+    
+    <div class="modal-flex-container" onclick="cerrarSiEsFondo(event)">
         <img class="modal-content" id="imgModal" onclick="toggleZoom(event)">
     </div>
-    <p class="instruccion">🔍 Clic en la imagen para ZOOM</p>
 </div>
 
 <script>
-    // Abre el modal
     function abrirModal(url) {
         var modal = document.getElementById("miModal");
         var img = document.getElementById("imgModal");
-        modal.style.display = "block"; // Cambiado a block para permitir scroll
+        modal.style.display = "block"; 
         img.src = url;
-        img.classList.remove("zoomed"); // Resetea el zoom
+        // Reiniciar siempre ajustado a pantalla
+        img.classList.remove("full-size");
     }
 
-    // Cierra el modal
     function cerrarModal() {
         document.getElementById("miModal").style.display = "none";
     }
 
-    // Cierra si clic en el fondo negro (pero no en la imagen)
     function cerrarSiEsFondo(event) {
-        // Verifica si el clic fue directamente en el contenedor o el fondo
-        if (event.target.id === "miModal" || event.target.className === "modal-container") {
+        // Cierra solo si haces clic en lo negro, no en la imagen
+        if (event.target === document.getElementById("miModal") || event.target.className === 'modal-flex-container') {
             cerrarModal();
         }
     }
 
-    // Activa/Desactiva Zoom Real
     function toggleZoom(event) {
-        event.stopPropagation(); // Evita cierre
+        event.stopPropagation(); // Evita que se cierre
         var img = document.getElementById("imgModal");
-        img.classList.toggle("zoomed");
+        // Alterna entre clase normal (ajustada) y full-size (nativa)
+        img.classList.toggle("full-size");
     }
 </script>
 
