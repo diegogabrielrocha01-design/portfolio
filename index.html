@@ -355,8 +355,64 @@
     }
 </script>
 
+<!-- In your <head> tag -->
+<script src="https://cdn.botpress.cloud/webchat/v3.5/inject.js"></script>
+<style>
+  #webchat .bpWebchat {
+    position: unset;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  #webchat .bpFab {
+    display: none;
+  }
+</style>
+
+<!-- Put this on your page BEFORE the script below -->
+<div id="webchat" style="width: 500px; height: 500px;"></div>
+
+<!-- In your <body> tag -->
+<script>
+  window.botpress.on("webchat:ready", () => {
+    window.botpress.open();
+  });
+  window.botpress.init({
+  "botId": "e79fd889-6cc1-4dcb-889e-2d1e99445380",
+  "configuration": {
+    "version": "v2",
+    "botName": "LexBot",
+    "botAvatar": "https://files.bpcontent.cloud/2026/01/24/03/20260124035023-KXAFIOMH.jpeg",
+    "botDescription": "¡Hola! Soy LexBot, el asistente virtual de Diego. Estoy entrenado para responder preguntas sobre su experiencia en derecho empresarial y sus habilidades técnicas. ¿Qué te gustaría saber?",
+    "website": {},
+    "email": {},
+    "phone": {},
+    "termsOfService": {},
+    "privacyPolicy": {},
+    "color": "#3276EA",
+    "variant": "solid",
+    "headerVariant": "glass",
+    "themeMode": "light",
+    "fontFamily": "inter",
+    "radius": 4,
+    "feedbackEnabled": false,
+    "footer": "[⚡ by Botpress](https://botpress.com/?from=webchat)",
+    "soundEnabled": false,
+    "proactiveMessageEnabled": false,
+    "proactiveBubbleMessage": "Hi! 👋 Need help?",
+    "proactiveBubbleTriggerType": "afterDelay",
+    "proactiveBubbleDelayTime": 10
+  },
+  "clientId": "7fcff2a5-0f59-48b2-b215-462368544179",
+  "selector": "#webchat"
+});
+</script>
+
 </body>
 
 </html>
+
 
 
